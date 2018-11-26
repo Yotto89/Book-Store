@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title> Ubiqum Bookstore</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+	<div class="container-fluid" id="app">
+		<nav class="navbar navbar-expand-lg navbar d-flex justify-content-between fixed-top">
+			<a class="bookstore" href="#"><img src="books.png" class="logo"> Ubiqum Bookstore</a>
+			<form class="form-inline my-2 my-lg-0">
+				<input v-model="searched" class="form-control mr-sm-2 searchInput" type="text" placeholder="Busca tu libro">
+			</form>
+		</nav>
+
+		<div class="tarjetas">
+			<div class="flip-card" v-for="book in Books">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img v-bind:src="book.cover" alt="Avatar" class="caratula">
+
+					</div>
+					<div class="flip-card-back">
+						<div class="titulolibro">
+							<h4>{{book.title}}</h4>
+						</div>
+						<div class="descripcion">
+							<p>{{book.description}}</p>
+						</div>
+						<div class="botoninfo">
+							<button class="btn btn-outline-warning"><a class="text-white" v-bind:href="book.detail" data-fancybox="images-preview" data-thumbs='("autostart":true)' v-bind:data-thumb="book.detail">More Info</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<h1 id="noMatchingResult">Oops! An error ocurred while searching your book!</h1>
+
+
+
+
+	</div>
+	<footer class="footer"> Ediciones Ubiqum S.A. 2018</footer>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
